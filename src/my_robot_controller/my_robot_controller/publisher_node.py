@@ -6,7 +6,7 @@ class Publisher(Node):
     def __init__(self):
         super().__init__("publisher_node")
         self.counter_ = 0
-        self.publisher_ = self.create_publisher(String, "Publisher", 10)
+        self.publisher_ = self.create_publisher(String, "/myTopic", 10)
         self.timers_ = self.create_timer(1.0, self.publisher)
         self.get_logger().info("publisher node is started")
 
