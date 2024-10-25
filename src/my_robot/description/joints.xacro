@@ -30,7 +30,7 @@
     <joint name="lidar_chassis_joint" type="fixed">
         <parent link="chassis"/>
         <child link="lidar"/>
-        <origin xyz="${chassis_length*7/10} 0 ${chassis_height}" rpy="0 0 0"/>
+        <origin xyz="${chassis_length*7/10} 0 ${chassis_height + lidar_length/2}" rpy="0 0 0"/>
     </joint>
     
 </robot>
