@@ -58,6 +58,12 @@ def generate_launch_description():
             launch_arguments={'world': world_path}.items()
         )
     
+    ros2_mapping = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([os.path.join(
+            get_package_share_directory('ros2_mapping'), 'launch'), '/online_async_launch.py']),
+            # launch_arguments={}.items()
+        )
+    
     spawn_entity = Node(package='gazebo_ros', executable='spawn_entity.py',
                     arguments=['-topic', 'robot_description',
                                 '-entity', 'my_bot'],
@@ -70,5 +76,6 @@ def generate_launch_description():
         rviz_arg,
         rviz2,
         gazebo,
-        spawn_entity
+        spawn_entity,
+        ros2_mapping
     ])
