@@ -888,306 +888,6 @@
       </joint>
       <pose>4.35288 2.87235 0 0 -0 0</pose>
     </model>
-    <model name='Desk'>
-      <static>1</static>
-      <link name='base_link'>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>/home/ngocrc/.ignition/fuel/fuel.ignitionrobotics.org/openrobotics/models/office desk/1/meshes/desk.dae</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <diffuse>1 1 1 1</diffuse>
-            <specular>1 1 1 1</specular>
-            <pbr>
-              <metal>
-                <albedo_map>materials/textures/Desk_Albedo.png</albedo_map>
-                <normal_map>materials/textures/Desk_Normal.png</normal_map>
-                <roughness_map>materials/textures/Desk_Roughness.png</roughness_map>
-              </metal>
-            </pbr>
-          </material>
-        </visual>
-        <collision name='Box001'>
-          <pose>0 0 0.750208 0 -0 0</pose>
-          <geometry>
-            <box>
-              <size>0.8325 2.24977 0.033646</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <collision name='Box002'>
-          <pose>0.331174 -1.05803 0.372493 0 -0 0</pose>
-          <geometry>
-            <box>
-              <size>0.035625 0.035625 0.744987</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <collision name='Box003'>
-          <pose>0.331174 1.05803 0.372493 0 -0 0</pose>
-          <geometry>
-            <box>
-              <size>0.035625 0.035625 0.744987</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <collision name='Box004'>
-          <pose>-0.331174 1.05803 0.372493 0 -0 0</pose>
-          <geometry>
-            <box>
-              <size>0.035625 0.035625 0.744987</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <collision name='Box005'>
-          <pose>-0.331174 -1.05803 0.372493 0 -0 0</pose>
-          <geometry>
-            <box>
-              <size>0.035625 0.035625 0.744987</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <collision name='Box006'>
-          <pose>0.000345 -1.05803 0.485212 3.14159 1.57079 3.14159</pose>
-          <geometry>
-            <box>
-              <size>0.035625 0.035625 0.663038</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <collision name='Box007'>
-          <pose>0.000345 1.05803 0.485212 3.14159 1.57079 3.14159</pose>
-          <geometry>
-            <box>
-              <size>0.035625 0.035625 0.663038</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <collision name='Box008'>
-          <pose>0 -0.000487 0.485212 1.57079 1.57079 3.14159</pose>
-          <geometry>
-            <box>
-              <size>0.035625 0.035625 2.11509</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <collision name='Box009'>
-          <pose>0.331174 -0.000626 0.715061 -1.5708 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.035625 0.035625 2.11481</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <collision name='Box010'>
-          <pose>-0.331174 -0.000626 0.715061 -1.5708 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.035625 0.035625 2.11481</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <collision name='Box011'>
-          <pose>0.072698 -0.102337 0.768498 0 0.087267 0</pose>
-          <geometry>
-            <box>
-              <size>0.129877 0.447191 0.05018</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <collision name='Box012'>
-          <pose>-0.222452 -0.060559 0.979005 0 -0 0</pose>
-          <geometry>
-            <box>
-              <size>0.029518 0.63758 0.470188</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <collision name='Box013'>
-          <pose>0.098995 0.276996 0.782739 0 0 -0.174533</pose>
-          <geometry>
-            <box>
-              <size>0.116594 0.05708 0.036897</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <pose>2.59243 -0.732569 0 0 -0 0</pose>
-    </model>
     <model name='Armchair'>
       <static>1</static>
       <link name='base_link'>
@@ -1454,79 +1154,89 @@
       <pose>5.2574 -2.18639 0 0 -0 0</pose>
     </model>
     <state world_name='default'>
-      <sim_time>524 784000000</sim_time>
-      <real_time>525 720449567</real_time>
-      <wall_time>1729852310 388723956</wall_time>
-      <iterations>524784</iterations>
+      <sim_time>982 277000000</sim_time>
+      <real_time>458 779579020</real_time>
+      <wall_time>1730554331 482650847</wall_time>
+      <iterations>457493</iterations>
       <model name='Armchair'>
-        <pose>2.1997 -3.08928 0 0 0 -2.60518</pose>
+        <pose>1.66853 -2.30656 0 0 0 -2.60518</pose>
         <scale>1 1 1</scale>
         <link name='base_link'>
-          <pose>2.1997 -3.08928 0 0 0 -2.60518</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='Desk'>
-        <pose>-1.52981 -1.03303 0 0 -0 0.45944</pose>
-        <scale>1 1 1</scale>
-        <link name='base_link'>
-          <pose>-1.52981 -1.03303 0 0 -0 0.45944</pose>
+          <pose>1.66853 -2.30656 0 0 0 -2.60518</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
       <model name='Fridge'>
-        <pose>5.2574 -2.18639 0 0 -0 2.121</pose>
+        <pose>2.54561 -0.085941 0 0 -0 2.121</pose>
         <scale>1 1 1</scale>
         <link name='base_link'>
-          <pose>5.2574 -2.18639 0 0 -0 2.121</pose>
+          <pose>2.54561 -0.085941 0 0 -0 2.121</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
       <model name='X1'>
-        <pose>4.35336 2.85134 0.132276 0 1.4e-05 0.005028</pose>
+        <pose>2.02531 1.99701 0.132275 2.2e-05 -1e-06 0.062855</pose>
         <scale>1 1 1</scale>
         <link name='base_link'>
-          <pose>4.35336 2.85134 0.132276 0 1.4e-05 0.005028</pose>
-          <velocity>-0.001635 -5.1e-05 0 -0.000147 0.02899 3.7e-05</velocity>
-          <acceleration>0.315418 0.001869 4e-06 0.255894 1.4486 0.083958</acceleration>
-          <wrench>14.5199 0.086053 0.000165 0 -0 0</wrench>
+          <pose>2.02531 1.99701 0.132275 2.2e-05 -1e-06 0.062855</pose>
+          <velocity>-0.001489 0.002014 0.000554 0.040986 0.002249 0.001103</velocity>
+          <acceleration>0.033231 -0.642831 0.002979 -2.88706 0.576879 2.54207</acceleration>
+          <wrench>1.52977 -29.5921 0.137124 0 -0 0</wrench>
         </link>
         <link name='front_left_wheel'>
-          <pose>4.60792 3.13803 0.165093 3e-06 1.0997 0.005031</pose>
-          <velocity>-0.000694 -3.6e-05 -0.007409 -0.000319 0.004191 3.8e-05</velocity>
-          <acceleration>-1.38656 0.003309 -14.8188 -0.594904 -0.00431 0.036557</acceleration>
-          <wrench>-3.65636 0.008726 -39.0771 0 -0 0</wrench>
+          <pose>2.26288 2.29792 0.165101 3.14157 0.090171 -3.07874</pose>
+          <velocity>-0.001746 0.000929 0.012346 0.041551 -0.007227 0.001102</velocity>
+          <acceleration>-0.833277 2.25539 22.8629 -2.87201 0.859815 2.52959</acceleration>
+          <wrench>-2.19735 5.94746 60.2894 0 -0 0</wrench>
         </link>
         <link name='front_right_wheel'>
-          <pose>4.61079 2.56723 0.165093 3e-06 1.10116 0.005031</pose>
-          <velocity>-0.000673 -3.6e-05 -0.007436 -0.000296 0.004198 3.8e-05</velocity>
-          <acceleration>-1.36673 0.002294 -14.8712 -0.550164 -0.003986 0.036617</acceleration>
-          <wrench>-3.60408 0.00605 -39.2154 0 -0 0</wrench>
+          <pose>2.29874 1.72825 0.165089 3.14156 -0.049251 -3.07873</pose>
+          <velocity>-0.001116 0.000973 -0.011189 0.038705 -0.007841 0.000458</velocity>
+          <acceleration>0.608041 2.32753 -22.2022 2.463 0.774173 2.41289</acceleration>
+          <wrench>1.6034 6.13768 -58.5473 0 -0 0</wrench>
         </link>
         <link name='rear_left_wheel'>
-          <pose>4.09593 3.13545 0.1651 4e-06 -1.11135 0.005025</pose>
-          <velocity>-0.000694 -5.6e-05 0.007409 0.000309 -0.004203 1.9e-05</velocity>
-          <acceleration>-1.38633 -0.016657 14.8171 0.576382 0.004176 -0.000871</acceleration>
-          <wrench>-3.65575 -0.043925 39.0726 0 -0 0</wrench>
+          <pose>1.75189 2.26576 0.165101 2.6e-05 0.542507 0.062868</pose>
+          <velocity>-0.001709 0.000367 0.012167 0.041564 -0.007215 0.0011</velocity>
+          <acceleration>-0.75197 0.962611 22.1763 -2.88379 0.85875 2.53285</acceleration>
+          <wrench>-1.98294 2.53841 58.4789 0 -0 0</wrench>
         </link>
         <link name='rear_right_wheel'>
-          <pose>4.0988 2.56466 0.1651 4e-06 -1.07811 0.005025</pose>
-          <velocity>-0.000673 -5.5e-05 0.007436 0.000307 -0.004076 1.9e-05</velocity>
-          <acceleration>-1.36654 -0.015722 14.8729 0.574328 0.004161 -0.00086</acceleration>
-          <wrench>-3.60356 -0.041459 39.2197 0 -0 0</wrench>
+          <pose>1.78775 1.69609 0.165089 5.2e-05 0.71994 0.062892</pose>
+          <velocity>-0.00108 0.000409 -0.011375 0.037422 -0.00792 0.000457</velocity>
+          <acceleration>0.689128 1.0349 -22.8904 2.20697 0.750946 2.41259</acceleration>
+          <wrench>1.81723 2.72903 -60.362 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='cabinet'>
+        <pose>0.087287 -1.82606 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='cabinet_bottom_plate'>
+          <pose>0.087287 -1.82606 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='cabinet_0'>
+        <pose>-0.914315 -0.569297 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='cabinet_bottom_plate'>
+          <pose>-0.914315 -0.569297 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
       <model name='chessboard'>
-        <pose>1.84063 3.45375 0.249994 -1e-06 -2e-06 0</pose>
+        <pose>0.496951 1.88527 0.249992 -2e-06 1e-06 -0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>1.84063 3.45375 0.249994 -1e-06 -2e-06 0</pose>
+          <pose>0.496951 1.88527 0.249992 -2e-06 1e-06 -0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
@@ -1548,10 +1258,472 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose>9.56072 -5.45507 8.08166 -0 0.723644 2.38418</pose>
+        <pose>4.17014 -0.373351 5.36686 0 1.04764 2.87618</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
     </gui>
+    <model name='cabinet'>
+      <static>1</static>
+      <link name='cabinet_bottom_plate'>
+        <inertial>
+          <pose>0 0 -1 0 -0 0</pose>
+          <inertia>
+            <ixx>2.05</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.05</iyy>
+            <iyz>0</iyz>
+            <izz>2.05</izz>
+          </inertia>
+          <mass>25</mass>
+        </inertial>
+        <collision name='cabinet_bottom_plate_geom'>
+          <pose>0 0 0.01 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.45 0.45 0.02</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='cabinet_bottom_plate_geom_visual'>
+          <pose>0 0 0.01 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.45 0.45 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='cabinet_bottom_plate_geom_cabinet_back_plate'>
+          <pose>0.235 0 0.51 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.45 1.02</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='cabinet_bottom_plate_geom_cabinet_back_plate_visual'>
+          <pose>0.235 0 0.51 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.45 1.02</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='cabinet_bottom_plate_geom_cabinet_left_plate'>
+          <pose>0 0.235 0.51 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.45 0.02 1.02</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='cabinet_bottom_plate_geom_cabinet_left_plate_visual'>
+          <pose>0 0.235 0.51 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.45 0.02 1.02</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='cabinet_bottom_plate_geom_cabinet_middle_plate'>
+          <pose>0 0 0.51 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.45 0.45 0.02</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='cabinet_bottom_plate_geom_cabinet_middle_plate_visual'>
+          <pose>0 0 0.51 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.45 0.45 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='cabinet_bottom_plate_geom_cabinet_right_plate'>
+          <pose>0 -0.235 0.51 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.45 0.02 1.02</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='cabinet_bottom_plate_geom_cabinet_right_plate_visual'>
+          <pose>0 -0.235 0.51 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.45 0.02 1.02</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='cabinet_bottom_plate_geom_cabinet_top_plate'>
+          <pose>0 0 1.01 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.45 0.45 0.02</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='cabinet_bottom_plate_geom_cabinet_top_plate_visual'>
+          <pose>0 0 1.01 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.45 0.45 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>-0.09662 -2.2788 0 0 -0 0</pose>
+    </model>
+    <model name='cabinet_0'>
+      <static>1</static>
+      <link name='cabinet_bottom_plate'>
+        <inertial>
+          <pose>0 0 -1 0 -0 0</pose>
+          <inertia>
+            <ixx>2.05</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.05</iyy>
+            <iyz>0</iyz>
+            <izz>2.05</izz>
+          </inertia>
+          <mass>25</mass>
+        </inertial>
+        <collision name='cabinet_bottom_plate_geom'>
+          <pose>0 0 0.01 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.45 0.45 0.02</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='cabinet_bottom_plate_geom_visual'>
+          <pose>0 0 0.01 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.45 0.45 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='cabinet_bottom_plate_geom_cabinet_back_plate'>
+          <pose>0.235 0 0.51 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.45 1.02</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='cabinet_bottom_plate_geom_cabinet_back_plate_visual'>
+          <pose>0.235 0 0.51 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.45 1.02</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='cabinet_bottom_plate_geom_cabinet_left_plate'>
+          <pose>0 0.235 0.51 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.45 0.02 1.02</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='cabinet_bottom_plate_geom_cabinet_left_plate_visual'>
+          <pose>0 0.235 0.51 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.45 0.02 1.02</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='cabinet_bottom_plate_geom_cabinet_middle_plate'>
+          <pose>0 0 0.51 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.45 0.45 0.02</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='cabinet_bottom_plate_geom_cabinet_middle_plate_visual'>
+          <pose>0 0 0.51 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.45 0.45 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='cabinet_bottom_plate_geom_cabinet_right_plate'>
+          <pose>0 -0.235 0.51 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.45 0.02 1.02</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='cabinet_bottom_plate_geom_cabinet_right_plate_visual'>
+          <pose>0 -0.235 0.51 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.45 0.02 1.02</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='cabinet_bottom_plate_geom_cabinet_top_plate'>
+          <pose>0 0 1.01 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.45 0.45 0.02</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='cabinet_bottom_plate_geom_cabinet_top_plate_visual'>
+          <pose>0 0 1.01 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.45 0.45 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>-0.914315 -0.569297 0 0 -0 0</pose>
+    </model>
   </world>
 </sdf>
