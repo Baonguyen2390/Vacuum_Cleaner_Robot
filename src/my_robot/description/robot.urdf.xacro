@@ -14,6 +14,8 @@
     <xacro:include filename="inertial_macros.xacro"/>
     <xacro:include filename="materials.xacro"/>
     <xacro:include filename="gazebo.xacro"/>
+    <xacro:include filename="gazebo_lidar.xacro"/>
+    <xacro:include filename="gazebo_control.xacro"/>
     <xacro:include filename="links.xacro"/>
     <xacro:include filename="joints.xacro"/>
 
