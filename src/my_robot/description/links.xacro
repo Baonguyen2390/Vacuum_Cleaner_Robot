@@ -34,7 +34,7 @@
             <collision>
                 <xacro:insert_block name="origin"/>
                 <geometry>
-                    <cylinder radius="${wheel_radius}" length="${wheel_length}"/>
+                    <sphere radius="${wheel_radius}"/>
                 </geometry>            
             </collision>
             <xacro:inertial_cylinder mass="0.01" radius="${wheel_radius}" length="${wheel_length}">
