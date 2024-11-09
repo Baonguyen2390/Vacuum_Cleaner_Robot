@@ -52,10 +52,14 @@ def generate_launch_description():
     )
 
     world_path = os.path.join(pkg_path,'world','obstacles.world')
+    gazebo_params_path = os.path.join(pkg_path,'config','gazebo_params.yaml')
     gazebo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(
             get_package_share_directory('gazebo_ros'), 'launch'), '/gazebo.launch.py']),
-            launch_arguments={'world': world_path}.items()
+            launch_arguments={
+                'world': world_path,
+                'extra_gazebo_args': '--ros-args --params-file ' + gazebo_params_path              
+            }.items()
         )
     
     ros2_mapping = IncludeLaunchDescription(
