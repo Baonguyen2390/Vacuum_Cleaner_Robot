@@ -32,7 +32,7 @@ Visualization Manager:
         Z: 0
       Plane: XY
       Plane Cell Count: 10
-      Reference Frame: <Fixed Frame>
+      Reference Frame: map
       Value: true
     - Alpha: 0.800000011920929
       Class: rviz_default_plugins/RobotModel
