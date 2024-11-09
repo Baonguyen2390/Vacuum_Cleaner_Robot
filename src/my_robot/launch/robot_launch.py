@@ -1,7 +1,7 @@
 # run the following command in the root directory (vacuum...) to launch the robot:
 # colcon build --packages-select my_robot && source install/setup.bash && ros2 launch my_robot robot_launch.py
 # open a new terminal and run this command to control the robot:
-# ros2 run teleop_twist_keyboard teleop_twist_keyboard
+# ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diff_cont/cmd_vel_unstamped
 
 import os
 from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
@@ -69,6 +69,18 @@ def generate_launch_description():
                                 '-entity', 'my_bot'],
                     output='screen')
     
+    diff_drive_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["diff_cont"],
+    )
+
+    joint_broad_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["joint_broad"],
+    )    
+    
     # Run the nodes
     return LaunchDescription([
         node_robot_state_publisher,
@@ -77,5 +89,7 @@ def generate_launch_description():
         rviz2,
         gazebo,
         spawn_entity,
-        ros2_mapping
+        ros2_mapping,
+        diff_drive_spawner,
+        joint_broad_spawner,
     ])
