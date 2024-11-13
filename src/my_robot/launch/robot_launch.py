@@ -41,7 +41,7 @@ def generate_launch_description():
 
     rviz_arg = DeclareLaunchArgument(
         name='rvizconfig',
-        default_value=os.path.join(pkg_path,'config','urdf.rviz'),
+        default_value=os.path.join(pkg_path,'config','urdf2.rviz'),
         description='Absolute path to rviz config file')
 
     rviz2 = Node(
