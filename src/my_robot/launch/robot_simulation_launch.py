@@ -1,5 +1,5 @@
 # run the following command in the root directory (vacuum...) to launch the robot:
-# colcon build --packages-select my_robot && source install/setup.bash && ros2 launch my_robot robot_launch.py
+# colcon build --packages-select my_robot && source install/setup.bash && ros2 launch my_robot robot_simulation_launch.py
 # open a new terminal and run this command to control the robot:
 # ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diff_cont/cmd_vel_unstamped
 
@@ -16,7 +16,7 @@ def generate_launch_description():
 
     # Specify the name of the package and path to xacro file within the package
     pkg_path = os.path.join(get_package_share_directory('my_robot'))
-    file_path = os.path.join(pkg_path,'description','robot.urdf.xacro')
+    file_path = os.path.join(pkg_path,'description','robot_simulation.xacro')
 
 
     # Use xacro to process the file
