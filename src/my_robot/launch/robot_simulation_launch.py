@@ -16,7 +16,7 @@ def generate_launch_description():
 
     # Specify the name of the package and path to xacro file within the package
     pkg_path = os.path.join(get_package_share_directory('my_robot'))
-    file_path = os.path.join(pkg_path,'description','robot.urdf.xacro')
+    file_path = os.path.join(pkg_path,'description','robot_simulation.xacro')
 
 
     # Use xacro to process the file
