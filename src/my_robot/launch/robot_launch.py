@@ -51,9 +51,11 @@ def generate_launch_description():
         arguments=['-d', LaunchConfiguration('rvizconfig')],
     )
 
+    world_path = os.path.join(pkg_path,'world','obstacles.world')
     gazebo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(
             get_package_share_directory('gazebo_ros'), 'launch'), '/gazebo.launch.py']),
+            launch_arguments={'world': world_path}.items()
         )
     
     spawn_entity = Node(package='gazebo_ros', executable='spawn_entity.py',
