@@ -1,5 +1,8 @@
 # run the following command in the root directory (vacuum...) to launch the robot:
 # colcon build --packages-select my_robot && source install/setup.bash && ros2 launch my_robot robot_launch.py
+# open a new terminal and run this command to control the robot:
+# ros2 run teleop_twist_keyboard teleop_twist_keyboard
+
 import os
 from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
 from launch.substitutions import LaunchConfiguration
@@ -31,10 +34,10 @@ def generate_launch_description():
             }] # add other parameters here if required
     )
 
-    joint_state_publisher_gui = Node(
-        package='joint_state_publisher_gui',
-        executable='joint_state_publisher_gui',
-    )
+    # joint_state_publisher_gui = Node(
+    #     package='joint_state_publisher_gui',
+    #     executable='joint_state_publisher_gui',
+    # )
 
     rviz_arg = DeclareLaunchArgument(
         name='rvizconfig',
@@ -61,7 +64,7 @@ def generate_launch_description():
     # Run the nodes
     return LaunchDescription([
         node_robot_state_publisher,
-        joint_state_publisher_gui,
+        # joint_state_publisher_gui,
         rviz_arg,
         rviz2,
         gazebo,
