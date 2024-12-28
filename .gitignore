@@ -3,3 +3,4 @@ build
 install
 log
 src/rplidar_ros
+*__pycache__
