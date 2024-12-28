@@ -73,7 +73,7 @@
             <geometry>
                 <cylinder radius="${lidar_radius}" length="${lidar_length}"/> 
             </geometry>
-            <origin xyz="0 0 ${lidar_length/2}" rpy="0 0 0"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
             <material name="black"/>
         </visual>
         <collision>
