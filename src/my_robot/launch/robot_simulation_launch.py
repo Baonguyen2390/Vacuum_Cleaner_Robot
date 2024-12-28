@@ -85,6 +85,14 @@ def generate_launch_description():
         arguments=["joint_broad"],
     )    
     
+    twist_mux_params = os.path.join(pkg_path,'config','twist_mux.yaml')
+    twist_mux = Node(
+        package="twist_mux",
+        executable="twist_mux",
+        parameters=[twist_mux_params, {'use_sim_time' : True}],
+        remappings=[('/cmd_vel_out','/diff_cont/cmd_vel_unstamped')],
+    )
+
     # Run the nodes
     return LaunchDescription([
         node_robot_state_publisher,
@@ -92,6 +100,7 @@ def generate_launch_description():
         rviz_arg,
         rviz2,
         gazebo,
+        twist_mux,
         spawn_entity,
         ros2_mapping,
         diff_drive_spawner,
