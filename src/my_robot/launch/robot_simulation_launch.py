@@ -34,23 +34,6 @@ def generate_launch_description():
             }] # add other parameters here if required
     )
 
-    # joint_state_publisher_gui = Node(
-    #     package='joint_state_publisher_gui',
-    #     executable='joint_state_publisher_gui',
-    # )
-
-    rviz_arg = DeclareLaunchArgument(
-        name='rvizconfig',
-        default_value=os.path.join(pkg_path,'config','urdf.rviz'),
-        description='Absolute path to rviz config file')
-
-    rviz2 = Node(
-        package='rviz2',
-        executable='rviz2',
-        output='screen',
-        arguments=['-d', LaunchConfiguration('rvizconfig')],
-    )
-
     world_path = os.path.join(pkg_path,'world','obstacles.world')
     gazebo_params_path = os.path.join(pkg_path,'config','gazebo_params.yaml')
     gazebo = IncludeLaunchDescription(
@@ -96,9 +79,6 @@ def generate_launch_description():
     # Run the nodes
     return LaunchDescription([
         node_robot_state_publisher,
-        # joint_state_publisher_gui,
-        rviz_arg,
-        rviz2,
         gazebo,
         twist_mux,
         spawn_entity,
