@@ -2,14 +2,17 @@
 <robot name="my_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
     <xacro:property name="chassis_length" value="0.4"/>
-    <xacro:property name="chassis_width" value="0.3"/>
+    <xacro:property name="chassis_width" value="0.26"/>
     <xacro:property name="chassis_height" value="0.15"/>
 
-    <xacro:property name="wheel_radius" value="0.05"/>
-    <xacro:property name="wheel_length" value="0.03"/>
+     <!-- measured diameter is 0.68 -->
+    <xacro:property name="wheel_radius" value="0.034"/> 
+    <xacro:property name="wheel_length" value="0.025"/>
 
     <xacro:property name="lidar_radius" value="0.05"/>
     <xacro:property name="lidar_length" value="0.03"/>
+
+    <xacro:property name="caster_wheel_base_joint_length" value="0.13"/>
 
     <xacro:include filename="inertial_macros.xacro"/>
     <xacro:include filename="materials.xacro"/>
