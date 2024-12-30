@@ -3,7 +3,7 @@
     
     <ros2_control name="example_02" type="system">
         <hardware>
-            <plugin>ros2_control_demo_example_2/DiffBotSystemHardware</plugin>
+            <plugin>diffdrive_stm/DiffBotSystemHardware</plugin>
             <param name="example_param_hw_start_duration_sec">0</param>
             <param name="example_param_hw_stop_duration_sec">3.0</param>
         </hardware>

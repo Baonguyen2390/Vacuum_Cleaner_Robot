@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef ROS2_CONTROL_DEMO_EXAMPLE_2__DIFFBOT_SYSTEM_HPP_
-#define ROS2_CONTROL_DEMO_EXAMPLE_2__DIFFBOT_SYSTEM_HPP_
+#ifndef diffdrive_stm__DIFFBOT_SYSTEM_HPP_
+#define diffdrive_stm__DIFFBOT_SYSTEM_HPP_
 
 #include <memory>
 #include <string>
@@ -31,7 +31,7 @@
 #include "rclcpp_lifecycle/node_interfaces/lifecycle_node_interface.hpp"
 #include "rclcpp_lifecycle/state.hpp"
 
-namespace ros2_control_demo_example_2
+namespace diffdrive_stm
 {
 class DiffBotSystemHardware : public hardware_interface::SystemInterface
 {
@@ -84,6 +84,6 @@ private:
   std::vector<double> hw_velocities_;
 };
 
-}  // namespace ros2_control_demo_example_2
+}  // namespace diffdrive_stm
 
-#endif  // ROS2_CONTROL_DEMO_EXAMPLE_2__DIFFBOT_SYSTEM_HPP_
+#endif  // diffdrive_stm__DIFFBOT_SYSTEM_HPP_
