@@ -27,7 +27,7 @@ endforeach()
 add_library(
   ros2_control_demo_example_2
   SHARED
-  hardware/diffbot_system.cpp
+  hardware/diffbot_system.cpp hardware/ComDriver.cpp
 )
 target_compile_features(ros2_control_demo_example_2 PUBLIC cxx_std_17)
 target_include_directories(ros2_control_demo_example_2 PUBLIC
@@ -61,6 +61,8 @@ install(TARGETS ros2_control_demo_example_2
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin
 )
+
+target_link_libraries(ros2_control_demo_example_2 PUBLIC serial)
 
 if(BUILD_TESTING)
   find_package(ament_cmake_pytest REQUIRED)
