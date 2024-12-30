@@ -18,8 +18,8 @@ diff_cont:
 
     left_wheel_names: ['left_wheel_base_joint']
     right_wheel_names: ['right_wheel_base_joint']
-    wheel_separation: 0.3
-    wheel_radius: 0.05
+    wheel_separation: 0.26 # measured
+    wheel_radius: 0.034 # measured diameter is 0.68
 
     use_stamped_vel: false
 

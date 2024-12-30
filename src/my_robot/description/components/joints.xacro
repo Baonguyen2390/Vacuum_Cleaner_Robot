@@ -4,7 +4,7 @@
     <joint name="base_chassis_joint" type="fixed">
         <parent link="base_link"/>
         <child link="chassis"/>
-        <origin xyz="-${chassis_length*7/10} 0 0"/>
+        <origin xyz="-${chassis_length*1/2} 0 0"/>
     </joint>
 
     <joint name="left_wheel_base_joint" type="continuous">
@@ -21,16 +21,16 @@
         <axis xyz="0 0 1"/>
     </joint>
 
-    <joint name="caster_wheel_chassis_joint" type="fixed">
-        <parent link="chassis"/>
+    <joint name="caster_wheel_base_joint" type="fixed">
+        <parent link="base_link"/>
         <child link="caster_wheel"/>
-        <origin xyz="${chassis_length*1/5} 0 0" rpy="0 0 0"/>
+        <origin xyz="-${caster_wheel_base_joint_length} 0 0" rpy="0 0 0"/>
     </joint>
 
-    <joint name="lidar_chassis_joint" type="fixed">
-        <parent link="chassis"/>
+    <joint name="lidar_base_joint" type="fixed">
+        <parent link="base_link"/>
         <child link="lidar"/>
-        <origin xyz="${chassis_length*7/10} 0 ${chassis_height + lidar_length/2}" rpy="0 0 0"/>
+        <origin xyz="0 0 ${chassis_height + lidar_length/2}" rpy="0 0 0"/>
     </joint>
     
 </robot>
