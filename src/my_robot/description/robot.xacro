@@ -3,6 +3,6 @@
 
     <xacro:include filename="components/main.xacro"/>
 
-    <xacro:include filename="ros2_components/main.xacro"/>
+    <xacro:include filename="ros2_components/rb_main.xacro"/>
 
 </robot>
