@@ -13,10 +13,11 @@
 # limitations under the License.
 
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, RegisterEventHandler
+from launch.actions import DeclareLaunchArgument, RegisterEventHandler, IncludeLaunchDescription
 from launch.conditions import IfCondition
 from launch.event_handlers import OnProcessExit
 from launch.substitutions import Command, FindExecutable, PathJoinSubstitution, LaunchConfiguration
+from launch.launch_description_sources import PythonLaunchDescriptionSource
 
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
@@ -93,9 +94,27 @@ def generate_launch_description():
         remappings=[('/cmd_vel_out','/diffbot_base_controller/cmd_vel_unstamped')],
     )
 
+    rplidar = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([
+            PathJoinSubstitution([
+                FindPackageShare('my_robot'), 'launch', 'rplidar_a1_launch.py'
+            ])
+        ]),
+    )
+
+    ros2_mapping = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([
+            PathJoinSubstitution([
+                FindPackageShare('ros2_mapping'), 'launch', 'online_async_launch.py'
+            ])
+        ]),
+    )
+
     nodes = [
         control_node,
         robot_state_pub_node,
+        rplidar,
+        ros2_mapping,
         twist_mux,
         robot_controller_spawner,
         delay_joint_state_broadcaster_after_robot_controller_spawner,
