@@ -25,7 +25,7 @@ endif()
 
 # Install launch files.
 install(DIRECTORY
-  launch description config world
+  launch description config world map
   DESTINATION share/${PROJECT_NAME}/
 )
 

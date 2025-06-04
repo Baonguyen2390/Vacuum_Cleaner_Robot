@@ -34,7 +34,7 @@ def generate_launch_description():
             }] # add other parameters here if required
     )
 
-    world_path = os.path.join(pkg_path,'world','obstacles.world')
+    world_path = os.path.join(pkg_path,'world','obstacles_02.world')
     gazebo_params_path = os.path.join(pkg_path,'config','gazebo_params.yaml')
     gazebo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(
@@ -82,7 +82,7 @@ def generate_launch_description():
         gazebo,
         twist_mux,
         spawn_entity,
-        ros2_mapping,
+        # ros2_mapping,
         diff_drive_spawner,
         joint_broad_spawner,
     ])
