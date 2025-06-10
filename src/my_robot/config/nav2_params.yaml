@@ -125,7 +125,7 @@ controller_server:
     progress_checker:
       plugin: "nav2_controller::SimpleProgressChecker"
       required_movement_radius: 0.5
-      movement_time_allowance: 10.0
+      movement_time_allowance: 30.0
     # Goal checker parameters
     #precise_goal_checker:
     #  plugin: "nav2_controller::SimpleGoalChecker"
@@ -140,11 +140,11 @@ controller_server:
     # RPP parameters
     RegulatedPurePursuitController:
       plugin: "nav2_regulated_pure_pursuit_controller::RegulatedPurePursuitController"
-      desired_linear_vel: 0.5
+      desired_linear_vel: 0.25
       lookahead_dist: 0.9
-      min_lookahead_dist: 0.25
-      max_lookahead_dist: 0.7
-      lookahead_time: 3.0
+      min_lookahead_dist: 0.15
+      max_lookahead_dist: 1.2
+      lookahead_time: 1.5
       rotate_to_heading_angular_vel: 1.8
       use_velocity_scaled_lookahead_dist: true
       min_approach_linear_velocity: 0.05
@@ -155,8 +155,8 @@ controller_server:
       use_fixed_curvature_lookahead: false
       curvature_lookahead_dist: 0.4
       use_cost_regulated_linear_velocity_scaling: false
-      regulated_linear_scaling_min_radius: 0.7
-      regulated_linear_scaling_min_speed: 0.11
+      regulated_linear_scaling_min_radius: 0.5
+      regulated_linear_scaling_min_speed: 0.04
       use_rotate_to_heading: false  # allows to follow coverage path better in sharper turns
       allow_reversing: false
       rotate_to_heading_min_angle: 0.785
@@ -223,7 +223,7 @@ local_costmap:
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
         cost_scaling_factor: 3.0
-        inflation_radius: 0.55
+        inflation_radius: 0.1
       voxel_layer:
         plugin: "nav2_costmap_2d::VoxelLayer"
         enabled: True
@@ -281,7 +281,7 @@ global_costmap:
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
         cost_scaling_factor: 3.0
-        inflation_radius: 0.55
+        inflation_radius: 0.1
       always_send_full_costmap: True
 
 map_server:
