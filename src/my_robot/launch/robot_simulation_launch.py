@@ -34,7 +34,7 @@ def generate_launch_description():
             }] # add other parameters here if required
     )
 
-    world_path = os.path.join(pkg_path,'world','obstacles_03.world')
+    world_path = os.path.join(pkg_path,'world','hallway.world')
     gazebo_params_path = os.path.join(pkg_path,'config','gazebo_params.yaml')
     gazebo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(
@@ -53,7 +53,9 @@ def generate_launch_description():
     
     spawn_entity = Node(package='gazebo_ros', executable='spawn_entity.py',
                     arguments=['-topic', 'robot_description',
-                                '-entity', 'my_bot'],
+                                '-entity', 'my_bot',
+                                '-x', '5.0',
+                                '-y', '-0.5'],
                     output='screen')
     
     diff_drive_spawner = Node(
@@ -82,7 +84,7 @@ def generate_launch_description():
         gazebo,
         twist_mux,
         spawn_entity,
-        # ros2_mapping,
+        ros2_mapping,
         diff_drive_spawner,
         joint_broad_spawner,
     ])
