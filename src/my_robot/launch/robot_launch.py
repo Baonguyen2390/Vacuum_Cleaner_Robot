@@ -87,6 +87,12 @@ def generate_launch_description():
         arguments=['--ros-args', '--params-file', gridmap_converter_param_file_path],
     )
 
+    fan_control_node = Node(
+        package="fan_control",
+        executable="fan_control_action_server",
+        arguments=[],
+    )
+
     # Delay start of joint_state_broadcaster after `robot_controller`
     # TODO(anyone): This is a workaround for flaky tests. Remove when fixed.
     delay_joint_state_broadcaster_after_robot_controller_spawner = RegisterEventHandler(
@@ -141,6 +147,7 @@ def generate_launch_description():
     nodes = [
         control_node,
         robot_state_pub_node,
+        fan_control_node,
         rplidar,
         # ros2_mapping,
         twist_mux,
