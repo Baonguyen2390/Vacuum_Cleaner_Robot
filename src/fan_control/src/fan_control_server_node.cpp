@@ -3,6 +3,8 @@
 
 #include <wiringPi.h>
 
+#define FAN_GPIO_PIN 17
+
 ControlFanLevel::ControlFanLevel(const rclcpp::NodeOptions & options)
 : Node("control_fan_level_server", options)
 {
@@ -13,7 +15,7 @@ ControlFanLevel::ControlFanLevel(const rclcpp::NodeOptions & options)
 
     // pin mode ..(INPUT, OUTPUT, PWM_OUTPUT, GPIO_CLOCK)
     // set pin 17 to input
-    pinMode(17, OUTPUT);
+    pinMode(FAN_GPIO_PIN, OUTPUT);
 
     this->action_server_ = rclcpp_action::create_server<FanLevelControl>(
         this,
@@ -21,6 +23,10 @@ ControlFanLevel::ControlFanLevel(const rclcpp::NodeOptions & options)
         std::bind(&ControlFanLevel::handle_goal, this, _1, _2),
         std::bind(&ControlFanLevel::handle_cancel, this, _1),
         std::bind(&ControlFanLevel::handle_accepted, this, _1));
+
+    digitalWrite(FAN_GPIO_PIN, LOW);
+
+    RCLCPP_INFO(this->get_logger(), "Fan control server has been initialized");
 }
 
 rclcpp_action::GoalResponse ControlFanLevel::handle_goal(
@@ -52,7 +58,7 @@ void ControlFanLevel::execute(const std::shared_ptr<GoalHandle> goal_handle)
     auto result = std::make_shared<FanLevelControl::Result>();
     const auto goal = goal_handle->get_goal();
 
-    digitalWrite(17, goal->level);
+    digitalWrite(FAN_GPIO_PIN, goal->level);
 
     RCLCPP_INFO(this->get_logger(), "Fan level has been set to %d", goal->level);
 
