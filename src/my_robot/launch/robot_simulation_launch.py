@@ -86,6 +86,14 @@ def generate_launch_description():
         remappings=[('/cmd_vel_out','/diff_cont/cmd_vel_unstamped')],
     )
 
+    gridmap_to_polygon_dir = get_package_share_directory('gridmap_to_polygon')
+    gridmap_converter_param_file_path = os.path.join(gridmap_to_polygon_dir, 'config', 'params.yaml')
+    convert_gridmap_to_polygons_node = Node(
+        package="gridmap_to_polygon",
+        executable="action_server",
+        arguments=['--ros-args', '--params-file', gridmap_converter_param_file_path],
+    )
+
     # Run the nodes
     return LaunchDescription([
         node_robot_state_publisher,
@@ -95,5 +103,6 @@ def generate_launch_description():
         ros2_mapping,
         diff_drive_spawner,
         joint_broad_spawner,
+        convert_gridmap_to_polygons_node,
         open_nav_bringup,
     ])
