@@ -1,10 +1,19 @@
 #include "fan_control/fan_control_server_node.h"
 #include "rclcpp_components/register_node_macro.hpp"
 
+#include <wiringPi.h>
+
 ControlFanLevel::ControlFanLevel(const rclcpp::NodeOptions & options)
 : Node("control_fan_level_server", options)
 {
     using namespace std::placeholders;
+
+    // uses BCM numbering of the GPIOs and directly accesses the GPIO registers.
+    wiringPiSetupGpio();
+
+    // pin mode ..(INPUT, OUTPUT, PWM_OUTPUT, GPIO_CLOCK)
+    // set pin 17 to input
+    pinMode(17, OUTPUT);
 
     this->action_server_ = rclcpp_action::create_server<FanLevelControl>(
         this,
@@ -41,6 +50,12 @@ void ControlFanLevel::handle_accepted(const std::shared_ptr<GoalHandle> goal_han
 void ControlFanLevel::execute(const std::shared_ptr<GoalHandle> goal_handle)
 {
     auto result = std::make_shared<FanLevelControl::Result>();
+    const auto goal = goal_handle->get_goal();
+
+    digitalWrite(17, goal->level);
+
+    RCLCPP_INFO(this->get_logger(), "Fan level has been set to %d", goal->level);
+
     goal_handle->succeed(result);
 }
 
