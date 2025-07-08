@@ -17,6 +17,7 @@ def generate_launch_description():
     # Specify the name of the package and path to xacro file within the package
     pkg_path = os.path.join(get_package_share_directory('my_robot'))
     file_path = os.path.join(pkg_path,'description','robot_simulation.xacro')
+    coverage_demo_dir = get_package_share_directory('opennav_coverage_demo')
 
 
     # Use xacro to process the file
@@ -51,6 +52,13 @@ def generate_launch_description():
             # launch_arguments={}.items()
         )
     
+    param_file_path = os.path.join(coverage_demo_dir, 'demo_params.yaml')
+    open_nav_bringup = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(coverage_demo_dir, 'bringup_launch.py')),
+        launch_arguments={'params_file': param_file_path}.items(),
+        )
+
     spawn_entity = Node(package='gazebo_ros', executable='spawn_entity.py',
                     arguments=['-topic', 'robot_description',
                                 '-entity', 'my_bot',
@@ -87,4 +95,5 @@ def generate_launch_description():
         ros2_mapping,
         diff_drive_spawner,
         joint_broad_spawner,
+        open_nav_bringup,
     ])

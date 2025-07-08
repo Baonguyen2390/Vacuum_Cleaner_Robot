@@ -21,9 +21,14 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
+from ament_index_python.packages import get_package_share_directory
+import os
 
 
 def generate_launch_description():
+
+    coverage_demo_dir = get_package_share_directory('opennav_coverage_demo')
+
 
     # Get URDF via xacro
     robot_description_content = Command(
@@ -110,6 +115,13 @@ def generate_launch_description():
         ]),
     )
 
+    param_file_path = os.path.join(coverage_demo_dir, 'demo_params.yaml')
+    open_nav_bringup = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(coverage_demo_dir, 'bringup_launch.py')),
+        launch_arguments={'params_file': param_file_path}.items(),
+        )
+
     nodes = [
         control_node,
         robot_state_pub_node,
@@ -118,6 +130,7 @@ def generate_launch_description():
         twist_mux,
         robot_controller_spawner,
         delay_joint_state_broadcaster_after_robot_controller_spawner,
+        open_nav_bringup,
     ]
 
     return LaunchDescription(nodes)
