@@ -79,6 +79,14 @@ def generate_launch_description():
         arguments=["diffbot_base_controller", "--controller-manager", "/controller_manager"],
     )
 
+    gridmap_to_polygon_dir = get_package_share_directory('gridmap_to_polygon')
+    gridmap_converter_param_file_path = os.path.join(gridmap_to_polygon_dir, 'config', 'params.yaml')
+    convert_gridmap_to_polygons_node = Node(
+        package="gridmap_to_polygon",
+        executable="action_server",
+        arguments=['--ros-args', '--params-file', gridmap_converter_param_file_path],
+    )
+
     # Delay start of joint_state_broadcaster after `robot_controller`
     # TODO(anyone): This is a workaround for flaky tests. Remove when fixed.
     delay_joint_state_broadcaster_after_robot_controller_spawner = RegisterEventHandler(
@@ -115,6 +123,14 @@ def generate_launch_description():
         ]),
     )
 
+    localization = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([
+            PathJoinSubstitution([
+                FindPackageShare('my_robot'), 'launch', 'localization_launch.py'
+            ])
+        ]),
+    )
+
     param_file_path = os.path.join(coverage_demo_dir, 'demo_params.yaml')
     open_nav_bringup = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
@@ -126,10 +142,12 @@ def generate_launch_description():
         control_node,
         robot_state_pub_node,
         rplidar,
-        ros2_mapping,
+        # ros2_mapping,
         twist_mux,
         robot_controller_spawner,
         delay_joint_state_broadcaster_after_robot_controller_spawner,
+        localization,
+        convert_gridmap_to_polygons_node,
         open_nav_bringup,
     ]
 
