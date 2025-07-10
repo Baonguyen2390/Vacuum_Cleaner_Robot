@@ -161,7 +161,7 @@ controller_server:
       allow_reversing: false
       rotate_to_heading_min_angle: 0.785
       max_angular_accel: 3.2
-      max_robot_pose_search_dist: 10.0
+      max_robot_pose_search_dist: 0.3
       use_interpolation: true
     # DWB parameters
     FollowPath:
