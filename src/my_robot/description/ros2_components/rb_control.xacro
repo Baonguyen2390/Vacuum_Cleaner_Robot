@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
     
-    <ros2_control name="example_02" type="system">
+    <ros2_control name="wheel_control" type="system">
         <hardware>
             <plugin>diffdrive_stm/DiffBotSystemHardware</plugin>
             <param name="max_count_per_loop">32</param>
