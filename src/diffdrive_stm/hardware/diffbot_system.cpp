@@ -46,11 +46,22 @@ hardware_interface::CallbackReturn DiffBotSystemHardware::on_init(
     rclcpp::get_logger("controller_manager.resource_manager.hardware_component.system.DiffBot"));
   clock_ = std::make_shared<rclcpp::Clock>(rclcpp::Clock());
 
+  pid_parameter.max_count_per_loop = (int)hardware_interface::stod(info_.hardware_parameters["max_count_per_loop"]);
+  pid_parameter.frequency = (int)hardware_interface::stod(info_.hardware_parameters["frequency"]);
+  pid_parameter.p = hardware_interface::stod(info_.hardware_parameters["p"]);
+  pid_parameter.i = hardware_interface::stod(info_.hardware_parameters["i"]);
+  pid_parameter.d = hardware_interface::stod(info_.hardware_parameters["d"]);
+
   hw_positions_.resize(info_.joints.size(), std::numeric_limits<double>::quiet_NaN());
   hw_velocities_.resize(info_.joints.size(), std::numeric_limits<double>::quiet_NaN());
   hw_commands_.resize(info_.joints.size(), std::numeric_limits<double>::quiet_NaN());
 
   com.init();
+
+  if(Com_Status_t::COM_OK != com.set_system_mode(com_system_state_t::SYSTEM_STATE_RESET))
+  {
+    return hardware_interface::CallbackReturn::ERROR;
+  }
 
   return hardware_interface::CallbackReturn::SUCCESS;
 }
@@ -98,6 +109,18 @@ hardware_interface::CallbackReturn DiffBotSystemHardware::on_activate(
     }
   }
 
+  if(Com_Status_t::COM_OK != com.set_parameter(pid_parameter))
+  {
+    RCLCPP_INFO(get_logger(), "Fail to set parameter!");
+    return hardware_interface::CallbackReturn::ERROR;
+  }
+
+  if(Com_Status_t::COM_OK != com.set_system_mode(com_system_state_t::SYSTEM_STATE_RUNNING))
+  {
+    RCLCPP_INFO(get_logger(), "Fail to set system mode!");
+    return hardware_interface::CallbackReturn::ERROR;
+  }
+
   RCLCPP_INFO(get_logger(), "Successfully activated!");
 
   return hardware_interface::CallbackReturn::SUCCESS;
@@ -108,6 +131,12 @@ hardware_interface::CallbackReturn DiffBotSystemHardware::on_deactivate(
 {
   // BEGIN: This part here is for exemplary purposes - Please do not copy to your production code
   RCLCPP_INFO(get_logger(), "Deactivating ...please wait...");
+
+  if(Com_Status_t::COM_OK != com.set_system_mode(com_system_state_t::SYSTEM_STATE_RESET))
+  {
+    RCLCPP_INFO(get_logger(), "Fail to set system mode to reset!");
+    return hardware_interface::CallbackReturn::ERROR;
+  }
 
   com.close();
 
@@ -138,6 +167,16 @@ hardware_interface::return_type diffdrive_stm ::DiffBotSystemHardware::write(
   );
 
   return hardware_interface::return_type::OK;
+}
+
+double DiffBotSystemHardware::convert_pid_loop_count_to_velocity(int8_t count_per_pid_loop)
+{
+    return (double)count_per_pid_loop / COUNT_PER_CYCLE * 3.1415 * 0.065 * pid_parameter.frequency;
+}
+
+int8_t DiffBotSystemHardware::convert_velocity_to_pid_loop_count(double velocity)
+{
+    return (int8_t)(velocity * COUNT_PER_CYCLE / 3.1415 / 0.065 / pid_parameter.frequency);
 }
 
 }  // namespace diffdrive_stm

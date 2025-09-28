@@ -30,6 +30,7 @@
 #include "rclcpp/time.hpp"
 #include "rclcpp_lifecycle/node_interfaces/lifecycle_node_interface.hpp"
 #include "rclcpp_lifecycle/state.hpp"
+#include "diffdrive_stm/ComDriver.h"
 
 namespace diffdrive_stm
 {
@@ -70,6 +71,10 @@ public:
   rclcpp::Clock::SharedPtr get_clock() const { return clock_; }
 
 private:
+  double convert_pid_loop_count_to_velocity(int8_t count_per_pid_loop);
+  int8_t convert_velocity_to_pid_loop_count(double velocity);
+
+private:
   // Parameters for the DiffBot simulation
   double hw_start_sec_;
   double hw_stop_sec_;
@@ -82,6 +87,8 @@ private:
   std::vector<double> hw_commands_;
   std::vector<double> hw_positions_;
   std::vector<double> hw_velocities_;
+
+  PIDLoop_Attr_t pid_parameter;
 };
 
 }  // namespace diffdrive_stm
