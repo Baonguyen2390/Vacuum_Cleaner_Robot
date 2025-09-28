@@ -1,11 +1,14 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
     
-    <ros2_control name="example_02" type="system">
+    <ros2_control name="wheel_control" type="system">
         <hardware>
             <plugin>diffdrive_stm/DiffBotSystemHardware</plugin>
-            <param name="example_param_hw_start_duration_sec">0</param>
-            <param name="example_param_hw_stop_duration_sec">3.0</param>
+            <param name="max_count_per_loop">32</param>
+            <param name="frequency">50</param>
+            <param name="p">3.3</param>
+            <param name="i">1.7</param>
+            <param name="d">0.01</param>
         </hardware>
       <joint name="left_wheel_base_joint">
         <command_interface name="velocity"/>
