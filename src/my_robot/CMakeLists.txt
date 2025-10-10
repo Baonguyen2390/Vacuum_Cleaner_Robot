@@ -25,7 +25,7 @@ endif()
 
 # Install launch files.
 install(DIRECTORY
-  launch description config world map
+  launch description config world map behavior_trees
   DESTINATION share/${PROJECT_NAME}/
 )
 
