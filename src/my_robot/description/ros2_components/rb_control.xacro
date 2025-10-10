@@ -22,10 +22,5 @@
       </joint>
     </ros2_control>
 
-    <!-- <gazebo>
-        <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
-            <parameters>$(find my_robot)/config/my_controllers.yaml</parameters>
-        </plugin>
-    </gazebo> -->
 
 </robot>

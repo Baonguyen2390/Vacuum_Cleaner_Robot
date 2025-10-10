@@ -1,7 +1,7 @@
 # run the following command in the root directory (vacuum...) to launch the robot:
 # colcon build --packages-select my_robot && source install/setup.bash && ros2 launch my_robot robot_simulation_launch.py
 # open a new terminal and run this command to control the robot:
-# ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diff_cont/cmd_vel_unstamped
+# ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diffbot_base_controller/cmd_vel_unstamped
 
 import os
 from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
@@ -69,13 +69,13 @@ def generate_launch_description():
     diff_drive_spawner = Node(
         package="controller_manager",
         executable="spawner",
-        arguments=["diff_cont"],
+        arguments=["diffbot_base_controller"],
     )
 
-    joint_broad_spawner = Node(
+    joint_state_broadcaster_spawner = Node(
         package="controller_manager",
         executable="spawner",
-        arguments=["joint_broad"],
+        arguments=["joint_state_broadcaster"],
     )    
     
     twist_mux_params = os.path.join(pkg_path,'config','twist_mux.yaml')
@@ -83,7 +83,7 @@ def generate_launch_description():
         package="twist_mux",
         executable="twist_mux",
         parameters=[twist_mux_params, {'use_sim_time' : True}],
-        remappings=[('/cmd_vel_out','/diff_cont/cmd_vel_unstamped')],
+        remappings=[('/cmd_vel_out','/diffbot_base_controller/cmd_vel_unstamped')],
     )
 
     gridmap_to_polygon_dir = get_package_share_directory('gridmap_to_polygon')
@@ -102,7 +102,7 @@ def generate_launch_description():
         spawn_entity,
         ros2_mapping,
         diff_drive_spawner,
-        joint_broad_spawner,
+        joint_state_broadcaster_spawner,
         convert_gridmap_to_polygons_node,
         open_nav_bringup,
     ])

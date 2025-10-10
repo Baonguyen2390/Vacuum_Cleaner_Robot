@@ -25,9 +25,9 @@
 
     <gazebo>
         <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
-            <parameters>$(find my_robot)/config/my_controllers.yaml</parameters>
+            <parameters>$(find my_robot)/config/diffbot_controllers.yaml</parameters>
             <ros>
-                <remapping>diff_cont/odom:=odom</remapping>
+                <remapping>diffbot_base_controller/odom:=odom</remapping>
             </ros>
         </plugin>
     </gazebo>

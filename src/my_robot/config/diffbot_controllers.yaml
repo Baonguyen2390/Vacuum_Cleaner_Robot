@@ -13,6 +13,7 @@ diffbot_base_controller:
     left_wheel_names: ["left_wheel_base_joint"]
     right_wheel_names: ["right_wheel_base_joint"]
 
+    # TODO: check these values
     wheel_separation: 0.25 # 2(radius - wheel_length)
     wheel_radius: 0.034
 
