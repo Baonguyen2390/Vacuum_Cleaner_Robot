@@ -75,6 +75,13 @@ def generate_launch_description():
         }.items()
     )
 
+    robot_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([
+            PathJoinSubstitution([FindPackageShare('my_robot'), 'launch', 'robot_launch.py'])
+        ]),
+        condition=IfCondition(PythonExpression(['not ', use_sim_time])),
+    )
+
     robot_simulation_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
             PathJoinSubstitution([FindPackageShare('my_robot'), 'launch', 'robot_simulation_launch.py'])
@@ -100,6 +107,8 @@ def generate_launch_description():
 
     ld.add_action(declare_use_sim_time_cmd)
 
+    # only one of these two actually gets launched, based on use_sim_time
+    ld.add_action(robot_launch)
     ld.add_action(robot_simulation_launch)
 
     ld.add_action(node_robot_state_publisher)
