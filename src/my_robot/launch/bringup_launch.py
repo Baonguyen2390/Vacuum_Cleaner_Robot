@@ -66,7 +66,7 @@ def generate_launch_description():
 
     slam_launch = IncludeLaunchDescription(
         PathJoinSubstitution([
-            FindPackageShare('my_robot'),
+            my_robot_dir,
             'launch',
             'online_async_launch.py'
         ]),
@@ -77,14 +77,14 @@ def generate_launch_description():
 
     robot_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
-            PathJoinSubstitution([FindPackageShare('my_robot'), 'launch', 'robot_launch.py'])
+            PathJoinSubstitution([my_robot_dir, 'launch', 'robot_launch.py'])
         ]),
         condition=IfCondition(PythonExpression(['not ', use_sim_time])),
     )
 
     robot_simulation_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
-            PathJoinSubstitution([FindPackageShare('my_robot'), 'launch', 'robot_simulation_launch.py'])
+            PathJoinSubstitution([my_robot_dir, 'launch', 'robot_simulation_launch.py'])
         ]),
         condition=IfCondition(use_sim_time),
     )
