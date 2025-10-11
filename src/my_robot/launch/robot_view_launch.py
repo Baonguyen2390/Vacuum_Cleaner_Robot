@@ -12,7 +12,7 @@ def generate_launch_description():
 
     rviz_arg = DeclareLaunchArgument(
         name='rvizconfig',
-        default_value=os.path.join(pkg_path,'config','real_robot.rviz'),
+        default_value=os.path.join(pkg_path,'config','view.rviz'),
         description='Absolute path to rviz config file')
 
     rviz2 = Node(
