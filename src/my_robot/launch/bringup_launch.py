@@ -64,9 +64,9 @@ def generate_launch_description():
         remappings=[('/cmd_vel_out','/diffbot_base_controller/cmd_vel_unstamped')],
     )
 
-    ros2_mapping = IncludeLaunchDescription(
+    slam_launch = IncludeLaunchDescription(
         PathJoinSubstitution([
-            FindPackageShare('ros2_mapping'),
+            FindPackageShare('my_robot'),
             'launch',
             'online_async_launch.py'
         ]),
@@ -93,7 +93,7 @@ def generate_launch_description():
     # TODO(anyone): This is a workaround for flaky tests. Remove when fixed.
     delayed_actions = [
         joint_state_broadcaster_spawner,
-        ros2_mapping,
+        slam_launch,
     ]
     delayed_actions_handler = RegisterEventHandler(
         event_handler=OnProcessExit(
