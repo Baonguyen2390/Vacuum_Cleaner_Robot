@@ -13,10 +13,10 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 def generate_launch_description():
 
     # Specify the name of the package and path to xacro file within the package
-    pkg_path = os.path.join(get_package_share_directory('my_robot'))
+    my_robot_dir = os.path.join(get_package_share_directory('my_robot'))
 
-    world_path = os.path.join(pkg_path,'world','hallway.world')
-    gazebo_params_path = os.path.join(pkg_path,'config','gazebo_params.yaml')
+    world_path = os.path.join(my_robot_dir,'world','hallway.world')
+    gazebo_params_path = os.path.join(my_robot_dir,'config','gazebo_params.yaml')
     gazebo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(
             get_package_share_directory('gazebo_ros'), 'launch'), '/gazebo.launch.py']),

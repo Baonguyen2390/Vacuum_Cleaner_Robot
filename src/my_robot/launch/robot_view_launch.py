@@ -8,11 +8,11 @@ from ament_index_python.packages import get_package_share_directory
 def generate_launch_description():
 
     # Specify the name of the package and path to xacro file within the package
-    pkg_path = os.path.join(get_package_share_directory('my_robot'))
+    my_robot_dir = os.path.join(get_package_share_directory('my_robot'))
 
     rviz_arg = DeclareLaunchArgument(
         name='rvizconfig',
-        default_value=os.path.join(pkg_path,'config','view.rviz'),
+        default_value=os.path.join(my_robot_dir,'config','view.rviz'),
         description='Absolute path to rviz config file')
 
     rviz2 = Node(
