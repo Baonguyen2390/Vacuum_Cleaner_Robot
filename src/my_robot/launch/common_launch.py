@@ -48,12 +48,14 @@ def generate_launch_description():
     joint_state_broadcaster_spawner = Node(
         package="controller_manager",
         executable="spawner",
+        parameters=[{'use_sim_time' : use_sim_time}],
         arguments=["joint_state_broadcaster", "--controller-manager", "/controller_manager"],
     )
 
     robot_controller_spawner = Node(
         package="controller_manager",
         executable="spawner",
+        parameters=[{'use_sim_time' : use_sim_time}],
         arguments=["diffbot_base_controller", "--controller-manager", "/controller_manager"],
     )
 
@@ -61,7 +63,10 @@ def generate_launch_description():
     twist_mux = Node(
         package="twist_mux",
         executable="twist_mux",
-        parameters=[twist_mux_params_dir],
+        parameters=[
+            twist_mux_params_dir,
+            {'use_sim_time' : use_sim_time},
+        ],
         remappings=[('/cmd_vel_out','/diffbot_base_controller/cmd_vel_unstamped')],
     )
 
