@@ -50,9 +50,7 @@ def generate_launch_description():
         ]),
     )
 
-    nodes = [
+    return LaunchDescription([
         control_node,
         rplidar,
-    ]
-
-    return LaunchDescription(nodes)
+    ])
