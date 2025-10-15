@@ -9,6 +9,7 @@ from launch import LaunchDescription
 from launch_ros.actions import Node
 from ament_index_python.packages import get_package_share_directory
 from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.substitutions import PathJoinSubstitution
 
 def generate_launch_description():
 
@@ -33,8 +34,18 @@ def generate_launch_description():
                                 '-y', '-0.5'],
                     output='screen')
 
+    # this is the common parts between real and simulated robot
+    common_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(PathJoinSubstitution([my_robot_dir, 'launch', 'common_launch.py'])),
+        launch_arguments={
+            'use_sim_time' : 'true',
+            'xacro_file_dir' : PathJoinSubstitution([my_robot_dir, 'description', 'robot_simulation.xacro'])
+        }.items(),
+    )
+
     # Run the nodes
     return LaunchDescription([
         gazebo,
         spawn_entity,
+        common_launch,
     ])

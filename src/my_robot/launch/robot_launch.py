@@ -23,6 +23,8 @@ from launch_ros.substitutions import FindPackageShare
 
 def generate_launch_description():
 
+    my_robot_dir = FindPackageShare('my_robot')
+
     robot_controllers = PathJoinSubstitution(
         [
             FindPackageShare("my_robot"),
@@ -50,7 +52,17 @@ def generate_launch_description():
         ]),
     )
 
+    # this is the common parts between real and simulated robot
+    common_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(PathJoinSubstitution([my_robot_dir, 'launch', 'common_launch.py'])),
+        launch_arguments={
+            'use_sim_time' : 'false',
+            'xacro_file_dir' : PathJoinSubstitution([my_robot_dir, 'description', 'robot.xacro'])
+        }.items(),
+    )
+
     return LaunchDescription([
         control_node,
         rplidar,
+        common_launch,
     ])

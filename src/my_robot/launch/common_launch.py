@@ -2,8 +2,7 @@ from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, RegisterEventHandler, IncludeLaunchDescription
 from launch.conditions import IfCondition
 from launch.event_handlers import OnProcessExit
-from launch.substitutions import Command, FindExecutable, PathJoinSubstitution, LaunchConfiguration, PythonExpression
-from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.substitutions import Command, FindExecutable, PathJoinSubstitution, LaunchConfiguration
 
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
@@ -77,20 +76,6 @@ def generate_launch_description():
         }.items()
     )
 
-    robot_launch = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([
-            PathJoinSubstitution([my_robot_dir, 'launch', 'robot_launch.py'])
-        ]),
-        condition=IfCondition(PythonExpression(['not ', use_sim_time])),
-    )
-
-    robot_simulation_launch = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([
-            PathJoinSubstitution([my_robot_dir, 'launch', 'robot_simulation_launch.py'])
-        ]),
-        condition=IfCondition(use_sim_time),
-    )
-
     # Delay start of joint_state_broadcaster after `robot_controller`
     # TODO(anyone): This is a workaround for flaky tests. Remove when fixed.
     delayed_actions = [
@@ -109,10 +94,6 @@ def generate_launch_description():
 
     ld.add_action(declare_use_sim_time_cmd)
     ld.add_action(declare_xacro_file_dir_cmd)
-
-    # only one of these two actually gets launched, based on use_sim_time
-    ld.add_action(robot_launch)
-    ld.add_action(robot_simulation_launch)
 
     ld.add_action(node_robot_state_publisher)
     ld.add_action(twist_mux)
