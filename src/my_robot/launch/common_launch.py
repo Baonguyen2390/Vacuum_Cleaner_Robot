@@ -15,18 +15,20 @@ def generate_launch_description():
     my_robot_dir = get_package_share_directory('my_robot')
 
     use_sim_time = LaunchConfiguration('use_sim_time')
+    xacro_file_dir = LaunchConfiguration('xacro_file_dir')
 
     declare_use_sim_time_cmd = DeclareLaunchArgument(
     'use_sim_time',
     default_value='False',
     description='Use simulation (Gazebo) clock if true, also used to determine simulated or real robot is launched')
 
+    declare_xacro_file_dir_cmd = DeclareLaunchArgument(
+        'xacro_file_dir',
+        default_value=PathJoinSubstitution([my_robot_dir, 'description', 'robot.xacro']),
+        description="Path to robot's description",
+    )
+    
     # Use xacro to process the description file
-    xacro_file_dir = PathJoinSubstitution([
-        my_robot_dir,
-        'description',
-        PythonExpression(["'robot_simulation.xacro' if ", use_sim_time, " else 'robot.xacro'"]),
-    ])
     robot_description_content = Command([
         PathJoinSubstitution([FindExecutable(name="xacro")]),
         " ",
@@ -106,6 +108,7 @@ def generate_launch_description():
     ld = LaunchDescription()
 
     ld.add_action(declare_use_sim_time_cmd)
+    ld.add_action(declare_xacro_file_dir_cmd)
 
     # only one of these two actually gets launched, based on use_sim_time
     ld.add_action(robot_launch)
